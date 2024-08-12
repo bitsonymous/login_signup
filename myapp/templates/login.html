@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - AI Blog Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Gradient background animation */
+    @keyframes gradient-bg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Glow effect for text */
+    .glow {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-r from-purple-800 via-blue-900 to-black text-white flex items-center justify-center font-sans antialiased animate-gradient-bg">
+
+  <!-- Login Container -->
+  <div class="w-full max-w-md bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold text-center mb-6 glow">Login to AI Blog Generator</h2>
+
+    <!-- Login Form -->
+    <form method = "post">
+      <!-- username Input -->
+       {% csrf_token %}
+      <div class="mb-4">
+        <label for="username" class="block text-gray-300 mb-2">Username</label>
+        <input type="username" id="username" name="username" placeholder="Enter your username" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+      </div>
+
+      <!-- Password Input -->
+      <div class="mb-6">
+        <label for="password" class="block text-gray-300 mb-2">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+      </div>
+
+      <!-- Login Button -->
+      <button type="submit" class="w-full py-3 rounded-lg bg-yellow-500 text-black font-bold hover:bg-yellow-400 transition duration-300">Login</button>
+    </form>
+
+    <!-- Forgot Password and Sign Up Links -->
+    <div class="mt-6 text-center">
+      <a href="#" class="text-yellow-500 hover:underline">Forgot your password?</a>
+    </div>
+    <div class="mt-2 text-center">
+      <a href="{% url 'signup' %}" class="text-yellow-500 hover:underline">Don't have an account? Sign up</a>
+    </div>
+  </div>
+  
+</body>
+</html>
